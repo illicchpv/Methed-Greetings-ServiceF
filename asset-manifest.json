@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "./static/css/main.25cfaafe.css",
+    "main.js": "./static/js/main.fcf3b9e8.js",
+    "static/media/open-sans-v29-latin_cyrillic-regular.woff": "./static/media/open-sans-v29-latin_cyrillic-regular.357fd6edbf9de5d51a91.woff",
+    "static/media/open-sans-v29-latin_cyrillic-700.woff": "./static/media/open-sans-v29-latin_cyrillic-700.e2b5a349bd45093d6993.woff",
+    "static/media/open-sans-v29-latin_cyrillic-regular.woff2": "./static/media/open-sans-v29-latin_cyrillic-regular.d0378a7641136f5d48e3.woff2",
+    "static/media/open-sans-v29-latin_cyrillic-700.woff2": "./static/media/open-sans-v29-latin_cyrillic-700.6a33ff8a2442a9c6eeb9.woff2",
+    "static/media/vk.svg": "./static/media/vk.4e83db61c8bb0a68c7664df2298d1eb2.svg",
+    "static/media/tg.svg": "./static/media/tg.11f71419b26e35ac1af257d056a625dc.svg",
+    "static/media/pinterest.svg": "./static/media/pinterest.39ff4fe32443e0e7361725124891af11.svg",
+    "static/media/stumbleupon.svg": "./static/media/stumbleupon.c1f34bf8f05ed0bbdfadc33c2fd19331.svg",
+    "index.html": "./index.html",
+    "main.25cfaafe.css.map": "./static/css/main.25cfaafe.css.map",
+    "main.fcf3b9e8.js.map": "./static/js/main.fcf3b9e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25cfaafe.css",
+    "static/js/main.fcf3b9e8.js"
+  ]
+}
