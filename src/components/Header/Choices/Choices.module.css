@@ -13,3 +13,29 @@
     font-size: 14px;
   }    
 }
+.button:active{
+  border-radius: 30px;
+}
+.wrapper{
+  position: relative;
+}
+.list{
+  position: absolute;
+  width: 300px;
+  padding: 20px 52px;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: #00c78b;
+  color: #fff;
+  border-radius: 30px;
+  top: 68px;
+  left: 0;
+}
+.item{
+  cursor: pointer;
+  line-height: 36px;
+  margin-bottom: 10px;
+}
+.item:last-child{
+  margin-bottom: 0;
+}

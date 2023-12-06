@@ -42,3 +42,6 @@
     font-size: 14px;
   }    
 }
+.button:active{
+  border-radius: 30px;
+}
