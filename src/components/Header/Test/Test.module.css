@@ -1,0 +1,48 @@
+.button{
+  width: 300px;
+  height: 65px;
+  border-radius: 30px;
+  border: 0;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: #00c78b;
+  color: #fff;
+  @media (max-width: 1024px){
+    width: 220px;
+    height: 45px;
+    font-size: 14px;
+  }    
+}
+.button:active{
+  border-radius: 30px;
+}
+.button_test{
+  font-weight: 400;
+  background-color:red;
+  width: max-content;
+  height: max-content;
+  padding: 5px 25px;  
+}
+
+.test__rez{
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 50%;
+  top: 15vh;
+  left: 50vw;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+}
+.test__rez h2{
+  color: red;
+  font-size: 16px;
+}
+.test__xrez{
+  line-height: 1.2;
+  white-space: pre-wrap;
+  font-size: 12px; 
+  margin-bottom: 20px;
+}
