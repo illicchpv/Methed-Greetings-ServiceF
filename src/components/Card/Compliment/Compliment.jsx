@@ -4,7 +4,7 @@ import { textContext } from '../../../context/textContext'
 
 export default function Compliment() {
   const {text} = useContext(textContext)
-  console.log('text: ', text);
+  // console.log('text: ', text);
 
   return (
     <p className={style.compliment}>
