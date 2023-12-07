@@ -5,6 +5,7 @@ export const useHolydays = () => {
   const [holidays, setHolidays] = useState({})
 
   useEffect(() => {
+    console.log(`useHolydays.useEffect fetch(${URL_API})`)
     fetch(URL_API)
       .then(resp=>{
         if(!resp.ok){

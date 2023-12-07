@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import style from './Choices.module.css'
 import { holidaysContext } from '../../../context/holidaysContext'
 import { URL_API } from '../../../const/const'
+// import { useHolydays } from '../../../hooks/useHolidays'
 // import { imgContext } from "../../../context/imgContext"
 
 // import Container from '../Container/Container'
@@ -21,10 +22,10 @@ import { URL_API } from '../../../const/const'
 export default function Choices() {
   const [isOpenChoices, setIsOpenChoices] = useState(false)
   // const [holiday, setHoliday] = useState('выбрать праздник')
-  const {holiday, setHoliday} = useContext(holidaysContext)
-  const [holidays, setHolidays] = useState({})
+  const {holidays, holiday, changeHolyday} = useContext(holidaysContext)
 
   useEffect(() => {
+    console.log(`Choices.useEffect fetch(${URL_API})`)
     fetch(URL_API)
       .then(resp=>{
         if(!resp.ok){
@@ -33,25 +34,21 @@ export default function Choices() {
         return resp.json()
       })
       .then(data => {
-        setHolidays(data)
+        // console.log('data: ', data);
       })
       .catch(err => {
-        console.log('err: ', err)
+        console.error('err: ', err)
       })
-  }, [holiday])
+  }, [holiday])  
 
   const toggleChoices = () => {
     setIsOpenChoices(prev => !prev)
     // setIsOpenChoices(!isOpenChoices)
   }
-  const changeHolyday = (title) => {
-    setHoliday(title)
-    setIsOpenChoices(false)
-  }
 
   return (
     <div className={style.wrapper}>
-      <button className={style.button} onClick={toggleChoices} >{holiday}</button>
+      <button className={style.button} onClick={toggleChoices} >{holidays[holiday] || 'выбрать праздник'}</button>
       {
         isOpenChoices &&
         (
@@ -60,7 +57,10 @@ export default function Choices() {
             <li 
               className={style.item} 
               key={item[0]}
-              onClick={() => {changeHolyday(item[1])}}
+              onClick={() => {
+                changeHolyday(item[0])
+                setIsOpenChoices(false)
+              }}
             >{item[1]}</li>
           ))}
         </ul>
