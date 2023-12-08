@@ -8,7 +8,7 @@ export default function Compliment() {
 
   return (
     <p className={style.compliment}>
-      {text}
+      {text ?? 'Выберите повод для поздравления'}
     </p>
   )
 }

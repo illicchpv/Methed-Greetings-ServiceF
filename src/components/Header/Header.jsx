@@ -13,7 +13,7 @@ export default function Header() {
             
             <button className={style.button}>Поменять фон</button>
 
-            <Test/>
+            {/* <Test/> */}
           </div>
 
           <Choices />

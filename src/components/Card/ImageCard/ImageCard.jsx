@@ -2,13 +2,15 @@
 
 import { useContext } from "react"
 import { imgContext } from "../../../context/imgContext"
+import CardBG from '../../../img/card-bg.jpg'
+// console.log('CardBG: ', CardBG);
 
 export default function ImageCard(props) {
-  const {img} = useContext(imgContext)
-  // console.log('2222img: ', img);
+  const {urlImg} = useContext(imgContext)
+  // console.log('2222img: ', urlImg);
   
   return (
-    <img src={props.img} alt="фон открытки" width={840} height={520} />
+    <img src={urlImg || CardBG} alt="фон открытки" width={840} height={520} />
   )
   // className={style.img} 
 }

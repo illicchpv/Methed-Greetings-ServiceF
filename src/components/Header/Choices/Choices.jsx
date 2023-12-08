@@ -25,7 +25,7 @@ export default function Choices() {
   const {holidays, holiday, changeHolyday} = useContext(holidaysContext)
 
   useEffect(() => {
-    console.log(`Choices.useEffect fetch(${URL_API})`)
+    // console.log(`Choices.useEffect fetch(${URL_API})`)
     fetch(URL_API)
       .then(resp=>{
         if(!resp.ok){
