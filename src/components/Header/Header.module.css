@@ -46,3 +46,7 @@
 .button:active{
   border-radius: 30px;
 }
+.button:disabled{
+  cursor: default;
+  background-color: #66a08f;
+}
