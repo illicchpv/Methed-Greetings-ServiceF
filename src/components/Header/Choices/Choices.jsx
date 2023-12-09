@@ -5,22 +5,27 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchHolidays, setHoliday } from '../../../store/holidaysSlice'
 import { fetchText } from '../../../store/textSlice'
 import { fetchImage } from '../../../store/imageSlice'
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink, useParams} from 'react-router-dom'
 
 export default function Choices() {
   const [isOpenChoices, setIsOpenChoices] = useState(false)
-  const {holiday, holidays, loading} = useSelector(state => state.holidays)
+  const {holidays, loading} = useSelector(state => state.holidays)
   const dispatch = useDispatch(); // useDispatch - позволяет вызывать акшены
-
-  useEffect(() => {
-    dispatch(fetchHolidays())
-
-  }, [dispatch])
+  const {holiday} = useParams()
+  // console.log('holiday: ', holiday);
 
   const toggleChoices = () => {
     if(loading !== 'success') return
     setIsOpenChoices(prev => !prev)
   }
+
+  useEffect(() => {
+    dispatch(fetchHolidays())
+    if(holiday) {
+      dispatch(fetchText(holiday))
+      dispatch(fetchImage(holiday))
+    } 
+  }, [dispatch, holiday])
 
   return (
     <div className={style.wrapper}>
@@ -39,9 +44,9 @@ export default function Choices() {
               className={style.item} 
               key={holiday}
               onClick={() => {
-                dispatch(setHoliday(holiday))
-                dispatch(fetchText(holiday))
-                dispatch(fetchImage(holiday))
+                // dispatch(setHoliday(holiday))
+                // dispatch(fetchText(holiday))
+                // dispatch(fetchImage(holiday))
                 setIsOpenChoices(false)
               }}
             ><NavLink 

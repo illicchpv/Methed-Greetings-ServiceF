@@ -9,6 +9,14 @@ export const fetchText = createAsyncThunk(
     return data
   }
 )
+export const fetchTextId = createAsyncThunk(
+  'text/fetchTextId', // имя акшена задаётся самому/ сам акшин формируется автоматически
+  async (id) => {
+    const res = await fetch(`${URL_API}text/${id}`)
+    const data = await res.json()
+    return data
+  }
+)
 
 const textSlice = createSlice({
   name: 'text',
@@ -34,6 +42,23 @@ const textSlice = createSlice({
       state.text = ''
       state.idText = ''
     },
+
+    [fetchTextId.pending]: (state, action) => {
+      state.loading = 'loading...'
+      state.text = ''
+      state.idText = ''
+    },
+    [fetchTextId.fulfilled]: (state, action) => {
+      state.loading = 'success'
+      state.text = action.payload.text
+      state.idText = action.payload.idText
+    },
+    [fetchTextId.rejected]: (state, action) => {
+      state.loading = 'error'
+      state.text = ''
+      state.idText = ''
+    },
+
   }
 })
 

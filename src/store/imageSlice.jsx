@@ -9,6 +9,14 @@ export const fetchImage = createAsyncThunk(
     return data
   }
 )
+export const fetchImageId = createAsyncThunk(
+  'image/fetchImageId', // имя акшена задаётся самому/ сам акшин формируется автоматически
+  async (id) => {
+    const res = await fetch(`${URL_API}image/${id}`)
+    const data = await res.json()
+    return data
+  }
+)
 
 const imageSlice = createSlice({
   name: 'image',
@@ -30,6 +38,22 @@ const imageSlice = createSlice({
       state.idImg = action.payload.idImg
     },
     [fetchImage.rejected]: (state, action) => {
+      state.loading = 'error'
+      state.urlImg = ''
+      state.idImg = ''
+    },
+
+    [fetchImageId.pending]: (state, action) => {
+      state.loading = 'loading...'
+      // чтоб не мерцала при загрузке state.urlImg = ''
+      // state.idImg = ''
+    },
+    [fetchImageId.fulfilled]: (state, action) => {
+      state.loading = 'success'
+      state.urlImg = action.payload.urlImg
+      state.idImg = action.payload.idImg
+    },
+    [fetchImageId.rejected]: (state, action) => {
       state.loading = 'error'
       state.urlImg = ''
       state.idImg = ''

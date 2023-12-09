@@ -16,13 +16,13 @@ const holidaysSlice = createSlice({
   name: 'holidays',
   initialState: {
     holidays: {}, // список праздников (приходит с сервера)
-    holiday: '',
+    // holiday: '',
     loading: '',
   },
   reducers:{
-    setHoliday(state, action){ // акшен для изменения состояния его имя holidays/setHoliday
-      state.holiday = action.payload
-    }
+    // setHoliday(state, action){ // акшен для изменения состояния его имя holidays/setHoliday
+    //   state.holiday = action.payload
+    // }
   },
   extraReducers:{
     [fetchHolidays.pending]: (state, action) => {

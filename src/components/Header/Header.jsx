@@ -5,10 +5,12 @@ import Test from './Test/Test';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchText } from '../../store/textSlice';
 import { fetchImage } from '../../store/imageSlice';
+import {Link, NavLink, useParams} from 'react-router-dom'
 
 export default function Header() {
   const dispatch = useDispatch();
-  const {holiday, holidays, loading} = useSelector(state => state.holidays)
+  // const {holiday, holidays, loading} = useSelector(state => state.holidays)
+  const {holiday} = useParams()
 
   return (
     <header className={style.header}>
