@@ -4,6 +4,7 @@ import { URL_API } from '../../../const/const'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchHolidays, setHoliday } from '../../../store/holidaysSlice'
 import { fetchText } from '../../../store/textSlice'
+import { fetchImage } from '../../../store/imageSlice'
 
 export default function Choices() {
   const [isOpenChoices, setIsOpenChoices] = useState(false)
@@ -32,17 +33,30 @@ export default function Choices() {
         isOpenChoices &&
         (
         <ul className={style.list}>
-          {Object.entries(holidays).map((item, i) => (
+          {Object.entries(holidays).map(([holiday,holidayText], i) => (
+            <li 
+              className={style.item} 
+              key={holiday}
+              onClick={() => {
+                dispatch(setHoliday(holiday))
+                dispatch(fetchText(holiday))
+                dispatch(fetchImage(holiday))
+                setIsOpenChoices(false)
+              }}
+            >{holidayText}</li>
+          ))}
+          {/* {Object.entries(holidays).map((item, i) => (
             <li 
               className={style.item} 
               key={item[0]}
               onClick={() => {
                 dispatch(setHoliday(item[0]))
                 dispatch(fetchText(item[0]))
+                dispatch(fetchImage(item[0]))
                 setIsOpenChoices(false)
               }}
             >{item[1]}</li>
-          ))}
+          ))} */}
         </ul>
         )
       }

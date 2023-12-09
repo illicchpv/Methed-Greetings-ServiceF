@@ -4,6 +4,7 @@ import Choices from './Choices/Choices'
 import Test from './Test/Test';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchText } from '../../store/textSlice';
+import { fetchImage } from '../../store/imageSlice';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function Header() {
               disabled={!holiday}
               onClick={()=>{
                 console.log('holiday: ', holiday)
+                dispatch(fetchImage(holiday))
               }}
             >Поменять фон</button>
 
