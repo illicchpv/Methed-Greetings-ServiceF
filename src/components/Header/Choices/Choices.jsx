@@ -1,10 +1,11 @@
-import { useContext, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import style from './Choices.module.css'
 import { URL_API } from '../../../const/const'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchHolidays, setHoliday } from '../../../store/holidaysSlice'
 import { fetchText } from '../../../store/textSlice'
 import { fetchImage } from '../../../store/imageSlice'
+import {Link, NavLink} from 'react-router-dom'
 
 export default function Choices() {
   const [isOpenChoices, setIsOpenChoices] = useState(false)
@@ -43,20 +44,12 @@ export default function Choices() {
                 dispatch(fetchImage(holiday))
                 setIsOpenChoices(false)
               }}
-            >{holidayText}</li>
+            ><NavLink 
+              to={`card/${holiday}`}
+              className={({isActive})=>(isActive ? style.linkActive : '')}
+              >{holidayText}</NavLink></li>
+            // NavLink при выборе добавляет класс active
           ))}
-          {/* {Object.entries(holidays).map((item, i) => (
-            <li 
-              className={style.item} 
-              key={item[0]}
-              onClick={() => {
-                dispatch(setHoliday(item[0]))
-                dispatch(fetchText(item[0]))
-                dispatch(fetchImage(item[0]))
-                setIsOpenChoices(false)
-              }}
-            >{item[1]}</li>
-          ))} */}
         </ul>
         )
       }
